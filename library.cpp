@@ -52,6 +52,11 @@ private:
 
     void loadData() {
         ifstream bookFile("books.txt");
+        if (!bookFile) {
+            cout << "File is Missing or Corrupted\n";
+            return;
+        }
+
         string title, author, ISBN;
         bool available;
         while (getline(bookFile, title)) {
@@ -65,6 +70,11 @@ private:
         bookFile.close();
 
         ifstream userFile("users.txt");
+        if (!userFile) {
+            cout << "File is Missing or Corrupted\n";
+            return;
+        }
+
         string name, ID, isbn;
         int bookCount;
         while (getline(userFile, name)) {
@@ -153,7 +163,24 @@ public:
             }
         }
     }
-};
+
+    void searchBooks(){
+        string query;
+        cout << "Enter Title/Author/ISBN to search: ";
+        getline(cin, query);
+        bool found = false;
+        for (int i = 0; i < books.size(); i++) {
+            if (books[i].title.find(query) != string::npos || books[i].author.find(query) != string::npos || books[i].ISBN.find(query) != string::npos) {
+                cout << books[i].title << " by " << books[i].author  << " (" << (books[i].available ? "Available" : "Borrowed") << ")\n";
+                found = true;
+            }
+        }   
+            if (!found) {
+                cout << "No matching books found.\n";
+            }
+        }
+    };
+
 
 int main() {
     Library lib;
@@ -166,6 +193,7 @@ int main() {
              << "3. Borrow Book\n"
              << "4. Show All Books\n"
              << "5. Show All Users\n"
+             << "6. Search Books\n"
              << "0. Exit\n"
              << "Enter choice: ";
         cin >> choice;
@@ -177,6 +205,7 @@ int main() {
             case 3: lib.borrowBook(); break;
             case 4: lib.showBooks(); break;
             case 5: lib.showUsers(); break;
+            case 6: lib.searchBooks(); break;
             case 0: return 0;
             default: cout << "Invalid choice!\n";
         }
