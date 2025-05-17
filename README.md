@@ -1,5 +1,5 @@
 
-# 📚 Simple Library Management System CSDC FINALS
+# 📚 Library Management System CSDC FINALS
 
 A lightweight console-based library management system written in C++ that handles book and user management with file persistence.
 
