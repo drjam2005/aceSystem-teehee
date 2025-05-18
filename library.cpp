@@ -187,6 +187,7 @@ int main() {
     int choice;
 
     while (true) {
+        cout << "JAMES THE SIGMA WAS HERE!!!";
         cout << "\nLibrary Menu:\n"
              << "1. Add Book\n"
              << "2. Add User\n"
