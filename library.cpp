@@ -12,7 +12,7 @@ class Book {
     bool isAvailable;
 
 public:
-    Book(string t = "", string a = "", string i = "", bool avail = true)
+    Book(string t, string a, string i, bool avail = true)
         : title(t), author(a), isbn(i), isAvailable(avail) {}
 
     string getTitle() const { return title; }
@@ -157,7 +157,7 @@ public:
             return;
         }
         
-        // Check if book is borrowed
+    
         for (const auto& user : users) {
             if (user.hasBorrowed(isbn)) {
                 cout << "Error: Cannot remove a book that is currently borrowed.\n";
