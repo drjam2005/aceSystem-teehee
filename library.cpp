@@ -6,7 +6,15 @@
 #include <algorithm>
 
 using namespace std;
+/*
+class new hell yeah
+code
+cod
+eoce
+doed
 
+d
+*/
 class Book {
     string title, author, isbn;
     bool isAvailable;
