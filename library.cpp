@@ -6,7 +6,7 @@
 #include <algorithm>
 
 using namespace std;
-
+// ARE YOU SIGMA?!?!?!?
 class Book {
     string title, author, isbn;
     bool isAvailable;
